@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Admin Tool</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="Author" content="Mike Petersen Odania IT">
+	<meta http-equiv="content-language" content="en">
+	<meta name="robots" content="follow, all"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/favicon.ico"/>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script src="/assets/admin/js/admin.js" type="application/javascript"></script>
+
+	<style type="text/css">
+		body {
+			padding-top: 50px;
+		}
+
+		a:link {
+			text-decoration: none
+		}
+
+		a:active {
+			text-decoration: none
+		}
+
+		a:hover {
+			text-decoration: none
+		}
+
+		a:visited {
+			text-decoration: none
+		}
+	</style>
+</head>
+
+<body bgcolor="#003366" text="#000000" vlink="#660000" link="#660000" alink="#660000">
+<br/>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">My project</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/admin">Home</a></li>
+				<li><a href="/admin/preview">Preview</a></li>
+				<li><a href="/admin/consul">Consul Services</a></li>
+				<li><a href="/admin/consul/status">Status</a></li>
+				<li><a href="/admin/domains">Domains</a></li>
+				<li><a href="/admin/config">Config</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="/signin">Sign in</a>
+				</li>
+				<li>
+					<a href="/logout">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<p><%= yield %></p>
+</div>
+
+<div id="footer">
+	<a href="http://www.odania.com">powered by Odania Portal</a>
+</div>
+</body>
+</html>

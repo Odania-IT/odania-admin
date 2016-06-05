@@ -1,0 +1,28 @@
+<h1>Consul Overview</h1>
+
+<table class="table">
+	 <tr>
+			<th>Service</th>
+			<th>Service Address</th>
+			<th>Service Port</th>
+			<th>Service ID</th>
+			<th>Node</th>
+			<th>Consul Address</th>
+	 </tr>
+	 <% @services.each_pair do |service_name, instances| %>
+			<% instances.each do |service_info| %>
+				 <tr>
+						<th>
+							 <a href="#" onclick="displayServiceInfo('<%= service_name %>')"><%= service_name %></a>
+						</th>
+						<td><%= service_info.ServiceAddress %></td>
+						<td><%= service_info.ServicePort %></td>
+						<td><%= service_info.ServiceID %></td>
+						<td><%= service_info.Node %></td>
+						<td><%= service_info.Address %></td>
+				 </tr>
+			<% end %>
+	 <% end %>
+</table>
+
+<pre id="detailed_info"></pre>

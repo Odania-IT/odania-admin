@@ -1,0 +1,30 @@
+<h1>Consul Overview</h1>
+
+<table class="table">
+		<tr>
+				<th>Name</th>
+				<th>Check Id</th>
+				<th>Service Id</th>
+				<th>Service Name</th>
+				<th>Status</th>
+				<th>Debug</th>
+		</tr>
+		<% @health_states.each do |health_state| %>
+				<tr>
+						<th>
+								<a href="#" onclick="displayHealthInfo('<%= health_state['CheckID'] %>');"><%= health_state['Name'] %></a>
+						</th>
+						<td><%= health_state['CheckID'] %></td>
+						<td><%= health_state['ServiceID'] %></td>
+						<td><%= health_state['ServiceName'] %></td>
+						<td><%= health_state['Status'] %></td>
+						<td><%= health_state.inspect %></td>
+				</tr>
+		<% end %>
+</table>
+
+<script type="text/javascript" charset="utf-8">
+	var healthStates = <%= JSON.dump(@health_states) %>;
+</script>
+
+<pre id="detailed_info"></pre>

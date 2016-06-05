@@ -1,0 +1,27 @@
+<h1>Domains</h1>
+
+<table class="table">
+		<tr>
+				<th>Domain</th>
+				<th>Subdomain</th>
+				<th>Languages</th>
+				<th>Layouts</th>
+				<th>Default Subdomain</th>
+				<th>Debug</th>
+		</tr>
+		<% @plugin_config.domains.each_pair do |domain_name, domain| %>
+				<% domain.subdomains.each_pair do |subdomain_name, subdomain|
+					config = subdomain.config %>
+						<tr>
+								<th>
+										<a href="#" onclick="displayServiceInfo('<%= domain_name %>')"><%= domain_name %></a>
+								</th>
+								<td><%= subdomain_name %></td>
+								<td><%= config['languages'] %></td>
+								<td><%= config['layout'].nil? ? '&lt;default&gt;' : config['layout'] %></td>
+								<td><%= config['default_subdomain'] %></td>
+								<td><%= config.inspect %></td>
+						</tr>
+				<% end %>
+		<% end %>
+</table>

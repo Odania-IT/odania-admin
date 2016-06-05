@@ -1,0 +1,3 @@
+config:
+  domain: example.com
+  subdomain: admin

@@ -1,0 +1,22 @@
+<h1>Configs</h1>
+
+<table class="table">
+	 <tr>
+			<th>Service</th>
+			<th>Service Address</th>
+	 </tr>
+	 <tr>
+			<td>Global</td>
+			<td>
+				 <pre><%= JSON.pretty_generate @global_config %></pre>
+			</td>
+	 </tr>
+	 <% @configs.each_pair do |plugin_name, config| %>
+			<tr>
+				 <td><%= plugin_name %></td>
+				 <td>
+						<pre><%= JSON.pretty_generate config %></pre>
+				 </td>
+			</tr>
+	 <% end %>
+</table>

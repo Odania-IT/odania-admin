@@ -1,0 +1,56 @@
+{
+	"plugin-config": {
+		"name": "odania-admin",
+		"default": false
+	},
+	"domains": {
+		"ADMIN_DOMAIN": {
+			"ADMIN_SUB_DOMAIN": {
+				"config": {
+					"languages": [
+						"de"
+					],
+					"layout": "admin"
+				},
+				"redirects": {
+					"^/$": "/en",
+					"^/en": "/en/admin"
+				},
+				"web": {
+					"^/en/admin$": {
+						"plugin_url": "/admin",
+						"cacheable": false
+					},
+					"^/en/admin/consul$": {
+						"plugin_url": "/admin/consul",
+						"cacheable": false
+					},
+					"^/en/admin/consul/status$": {
+						"plugin_url": "/admin/consul/status",
+						"cacheable": false
+					},
+					"^/en/admin/consul/service$": {
+						"plugin_url": "/admin/consul/service",
+						"cacheable": false
+					},
+					"^/en/admin/domains$": {
+						"plugin_url": "/admin/domains",
+						"cacheable": false
+					},
+					"^/en/admin/config$": {
+						"plugin_url": "/admin/config",
+						"cacheable": false
+					},
+					"^/favicon.ico$": {
+						"plugin_url": "/admin/favicon.ico",
+						"cacheable": false
+					},
+					"^/assets/admin/js/admin.js$": {
+						"plugin_url": "/assets/admin/js/admin.js",
+						"cacheable": false
+					}
+				}
+			}
+		}
+	}
+}

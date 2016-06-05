@@ -1,0 +1,39 @@
+<h1>Status</h1>
+
+<table class="table">
+	 <% @services.each_pair do |service_name, services| %>
+
+			<tr>
+				 <th colspan="7" style="text-align: center;"><%= service_name %></th>
+			</tr>
+			<tr>
+				 <th>Service ID</th>
+				 <th>Status</th>
+				 <th>Ip</th>
+				 <th>Port</th>
+				 <th></th>
+			</tr>
+
+			<% services.each_pair do |service_id, service|
+				 service_info = service[:info]
+				 service[:checks].each do |check| %>
+						<tr>
+							 <td><%= check['ServiceID'] %></td>
+							 <td>
+									<a href="#" data-toggle="tooltip" title="<%= check['Output'] %>">
+										 <%= check['Status'] %>
+									</a>
+							 </td>
+							 <td><%= service_info.ServiceAddress %></td>
+							 <td><%= service_info.ServicePort %></td>
+						</tr>
+				 <% end %>
+			<% end %>
+	 <% end %>
+</table>
+
+<script type="application/javascript">
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
