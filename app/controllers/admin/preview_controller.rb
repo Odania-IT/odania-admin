@@ -21,7 +21,7 @@ class Admin::PreviewController < AdminController
 		if uri_string.end_with? 'js'
 			return render js: html_doc.to_xhtml(indent: 3).html_safe
 		elsif uri_string.end_with? 'css'
-				return render text: html_doc.to_xhtml(indent: 3).html_safe
+			return render text: html_doc.to_xhtml(indent: 3).html_safe
 		elsif uri_string.end_with? 'png'
 			return send_data @result, type: MIME::Types.type_for('image.png').first.content_type, disposition: 'inline'
 		elsif uri_string.end_with? 'jpg'

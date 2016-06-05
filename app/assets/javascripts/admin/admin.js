@@ -10,7 +10,7 @@ function displayServiceInfo(serviceName) {
 function displayHealthInfo(checkId) {
 	console.log('health', checkId, healthStates);
 	var info = '', healthState;
-	for (var i=0 ; i<healthStates.length ; i++) {
+	for (var i = 0; i < healthStates.length; i++) {
 		healthState = healthStates[i];
 		console.log("A", healthState, healthState.CheckID);
 
