@@ -1,24 +1,8 @@
-## README
+= OdaniaAdmin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/Odania-IT/odania-admin.png?branch=master)](https://travis-ci.org/Odania-IT/odania-admin)
+[![Code Climate](https://codeclimate.com/github/Odania-IT/odania-admin/badges/gpa.svg)](https://codeclimate.com/github/Odania-IT/odania-admin)
 
-Things you may want to cover:
+This is the admin tool for the Odania Portal
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Homepage: [Odania](http://www.odania.com)
