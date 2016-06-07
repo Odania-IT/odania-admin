@@ -62,7 +62,7 @@ class ConsulMock < Odania::Consul
 		end
 
 		def get(key, scope=:first)
-			@services[key]
+			@services[key].first
 		end
 
 		def register(consul_config)
