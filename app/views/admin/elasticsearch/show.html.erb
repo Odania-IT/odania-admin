@@ -1,0 +1,44 @@
+<form method="post">
+	Current Index: <%= @current_index %>
+	Total Hits: <%= @total_hits %>
+</form>
+<% content = '' %>
+
+<table class="table">
+	<tr>
+		<th>Index</th>
+		<th>Type</th>
+		<th>Id</th>
+		<th>Domain</th>
+		<th>Partial Name</th>
+		<th>Cacheable</th>
+		<th>Released</th>
+		<th>View in List</th>
+		<th>Full Path</th>
+	</tr>
+	<% @hits.each do |hit|
+		source = hit['_source'] %>
+		<tr>
+			<td><%= hit['_index'] %></td>
+			<td><%= hit['_type'] %></td>
+			<td><%= hit['_id'] %></td>
+			<td><%= source['full_domain'] %></td>
+			<td>
+				<a href="<%= admin_elasticsearch_show_path(partial_name: source['partial_name'], idx_type: @idx_type) %>" target="preview_frame">
+					<%= source['partial_name'] %>
+				</a>
+			</td>
+
+			<td><%= source['cacheable'] %></td>
+			<td><%= source['released'] %></td>
+			<td><%= source['view_in_list'] %></td>
+			<td><%= source['full_path'] %></td>
+		</tr>
+		<tr>
+			<td colspan="9">
+				Content Length:
+				<%= source['content'].length %>
+			</td>
+		</tr>
+	<% end %>
+</table>

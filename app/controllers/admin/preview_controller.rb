@@ -19,9 +19,9 @@ class Admin::PreviewController < AdminController
 
 		uri_string = @uri.to_s
 		if uri_string.end_with? 'js'
-			return render js: html_doc.to_xhtml(indent: 3).html_safe
+			return render js: @result
 		elsif uri_string.end_with? 'css'
-			return render text: html_doc.to_xhtml(indent: 3).html_safe
+			return render text: @result, content_type: 'text/css'
 		elsif uri_string.end_with? 'png'
 			return send_data @result, type: MIME::Types.type_for('image.png').first.content_type, disposition: 'inline'
 		elsif uri_string.end_with? 'jpg'
@@ -42,7 +42,12 @@ class Admin::PreviewController < AdminController
 			unless href.nil?
 				if href.start_with? 'http'
 					target_uri = URI.parse(href)
-					href = target_uri.query
+					href = target_uri.path
+				end
+
+				if href.start_with? '//'
+					target_uri = URI.parse("http:#{href}")
+					href = target_uri.path
 				end
 
 				href = "/#{href}" unless href.nil? or href.start_with? '/'
