@@ -44,6 +44,7 @@ class Admin::PreviewController < AdminController
 			unless href.nil?
 				if href.start_with? 'http'
 					target_uri = URI.parse(href)
+					next unless @uri.host.eql? target_uri.host
 					href = target_uri.path
 				end
 
